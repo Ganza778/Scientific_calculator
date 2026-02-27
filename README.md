@@ -1,16 +1,84 @@
-# React + Vite
+Scientific Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple scientific calculator web app built using HTML, CSS, and JavaScript.
+It supports basic arithmetic and scientific functions using the Math.js API.
 
-Currently, two official plugins are available:
+This project was created as part of my learning journey in front-end development.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ Features
 
-## React Compiler
+Basic operations: + , − , × , ÷
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Scientific functions:
 
-## Expanding the ESLint configuration
+sin(), cos(), tan()
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+log(), sqrt()
+
+Brackets ( ) for grouped calculations
+
+Delete (⌫) button for correcting mistakes
+
+Clear (C) button to reset input
+
+Clean, dark-themed user interface
+
+Uses Math.js API for accurate calculations
+
+Technologies Used
+
+HTML – structure
+
+CSS – styling and layout
+
+JavaScript – logic and interactivity
+
+Math.js API – scientific calculations
+
+Git & GitHub – version control
+
+Project Structure
+scientific-calculator/
+│
+├── index.html     # Main HTML file
+├── style.css      # Calculator styling
+├── script.js      # Calculator logic
+└── README.md      # Project documentation
+How to Run the Project
+
+Clone this repository:
+
+git clone https://github.com/Ganza778/Scientific_calculator.git
+
+Open the folder
+
+Double-click index.html
+or open it in your browser
+
+ Example Calculations
+
+sin(45)
+
+sqrt(144)
+
+(5 + 3) * 2
+
+log(100)
+
+10 / (2 + 3)
+ Future Improvements
+
+Add keyboard input support
+
+Add calculation history
+
+Improve mobile responsiveness
+
+Convert the project to React
+
+Deploy live using GitHub Pages or Netlify
+
+Author
+
+Ganza
+Frontend Developer (in progress )
