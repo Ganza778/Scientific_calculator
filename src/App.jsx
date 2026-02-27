@@ -1,70 +1,67 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+import './Calculator.css';
 
-export default function App() {
-  const [display, setDisplay] = useState("");
+export default function Calculator() {
+  const [display, setDisplay] = useState('');
 
+  // Add value to display
   const add = (value) => {
-    setDisplay((prev) => prev + value);
+    setDisplay(display + value);
   };
 
-  const clear = () => {
-    setDisplay("");
+  // Clear entire display
+  const clearDisplay = () => {
+    setDisplay('');
   };
 
-  const calculate = async () => {
-    if (!display) return;
-
-    try {
-      const res = await fetch(
-        `https://api.mathjs.org/v4/?expr=${encodeURIComponent(display)}`
-      );
-      const result = await res.text();
-      setDisplay(result);
-    } catch {
-      setDisplay("Error");
-    }
+  // Delete last character
+  const deleteLast = () => {
+    setDisplay(display.slice(0, -1));
   };
 
-  const buttons = [
-    "7","8","9","/",
-    "4","5","6","*",
-    "1","2","3","-",
-    "0",".","+","=",
-    "sin(","cos(","tan(","log(",
-    "sqrt(","C"
-  ];
+  // Calculate using Math.js API
+  const calculate = () => {
+    fetch(`https://api.mathjs.org/v4/?expr=${encodeURIComponent(display)}`)
+      .then((res) => res.text())
+      .then((result) => setDisplay(result))
+      .catch(() => setDisplay('Error'));
+  };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-      <div className="bg-gray-800 p-6 rounded-2xl w-80 shadow-xl">
+    <div className="calculator">
+      <input type="text" value={display} readOnly id="display" />
 
-        <input
-          value={display}
-          readOnly
-          className="w-full mb-4 p-3 text-right text-xl rounded bg-black text-green-400"
-        />
+      <div className="buttons">
+        <button onClick={() => add('7')}>7</button>
+        <button onClick={() => add('8')}>8</button>
+        <button onClick={() => add('9')}>9</button>
+        <button onClick={() => add('/')}>÷</button>
 
-        <div className="grid grid-cols-4 gap-3">
-          {buttons.map((btn) => (
-            <button
-              key={btn}
-              onClick={() =>
-                btn === "="
-                  ? calculate()
-                  : btn === "C"
-                  ? clear()
-                  : add(btn)
-              }
-              className={`p-3 rounded text-white 
-                ${btn === "=" ? "bg-green-600 col-span-2" : ""}
-                ${btn === "C" ? "bg-red-600" : "bg-gray-700 hover:bg-gray-600"}
-              `}
-            >
-              {btn}
-            </button>
-          ))}
-        </div>
+        <button onClick={() => add('4')}>4</button>
+        <button onClick={() => add('5')}>5</button>
+        <button onClick={() => add('6')}>6</button>
+        <button onClick={() => add('*')}>×</button>
 
+        <button onClick={() => add('1')}>1</button>
+        <button onClick={() => add('2')}>2</button>
+        <button onClick={() => add('3')}>3</button>
+        <button onClick={() => add('-')}>−</button>
+
+        <button onClick={() => add('0')}>0</button>
+        <button onClick={() => add('(')}>(</button>
+        <button onClick={() => add(')')}>)</button>
+        <button onClick={() => add('.')}>.</button>
+        <button onClick={calculate}>=</button>
+        <button onClick={() => add('+')}>+</button>
+
+        <button onClick={() => add('sin(')}>sin</button>
+        <button onClick={() => add('cos(')}>cos</button>
+        <button onClick={() => add('tan(')}>tan</button>
+        <button onClick={() => add('log(')}>log</button>
+
+        <button onClick={() => add('sqrt(')}>√</button>
+        <button onClick={clearDisplay}>C</button>
+        <button onClick={deleteLast}>⌫</button>
       </div>
     </div>
   );
