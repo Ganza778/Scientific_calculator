@@ -57,6 +57,28 @@ button:nth-last-child(1) {
   background: #ef4444;
 }
 
+@media (max-width: 1024px) and (min-width: 601px) {
+  .calculator {
+    padding: 25px;
+    border-radius: 18px;
+  }
+
+  #display {
+    height: 55px;
+    font-size: 22px;
+  }
+
+  .buttons {
+    grid-template-columns: repeat(4, 70px);
+    gap: 12px;
+  }
+
+  button {
+    padding: 16px;
+    font-size: 17px;
+  }
+}
+
 @media (max-width: 480px) {
   body {
     padding: 10px;
